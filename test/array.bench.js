@@ -1,9 +1,9 @@
-import { bench } from 'vitest'
+import { bench } from 'vitest';
 // import { fillRange, fillRange2, fillRange3, fillRange4 } from '../lib/array.js';
 
 function getLimits(start = 0, end) {
     if (!end) {
-        return [0, start]
+        return [0, start];
     }
     return [start, end - start + 1];
 }

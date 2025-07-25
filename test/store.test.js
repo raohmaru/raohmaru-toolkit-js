@@ -63,7 +63,7 @@ describe('combineReducers', () => {
 
 describe('applyMiddleware', () => {
   it('Should apply middleware to dispatch', () => {
-    const logger = vi.fn(({ getState }) => next => action => {
+    const logger = vi.fn(() => next => action => {
       return next(action);
     });
     const reducer = (state = 0, action) => {
@@ -71,7 +71,7 @@ describe('applyMiddleware', () => {
         case 'INC': return state + 1;
         default: return state;
       }
-    }
+    };
     const enhancedCreateStore = applyMiddleware(logger)(createStore);
     const store = enhancedCreateStore(reducer, 0);
     store.dispatch({ type: 'INC' });

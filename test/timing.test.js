@@ -61,6 +61,6 @@ describe('wait', () => {
             .then(() => {
                 return 1;
             });
-        await expect(promise).resolves.toBe(1)
+        await expect(promise).resolves.toBe(1);
     });
 });

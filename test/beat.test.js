@@ -9,8 +9,8 @@ describe('Beat', () => {
     cb = vi.fn();
     beat = new Beat(cb, 60);
     vi.useFakeTimers();
-    global.requestAnimationFrame = vi.fn((fn) => setTimeout(() => fn(performance.now()), 16));
-    global.cancelAnimationFrame = vi.fn((id) => clearTimeout(id));
+    globalThis.requestAnimationFrame = vi.fn((fn) => setTimeout(() => fn(performance.now()), 16));
+    globalThis.cancelAnimationFrame = vi.fn((id) => clearTimeout(id));
   });
 
   it('Should initialize with callback and FPS', () => {

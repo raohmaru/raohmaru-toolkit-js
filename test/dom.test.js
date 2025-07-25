@@ -12,7 +12,7 @@ describe('$', () => {
             <span class="percal"></span>
         `;
         document.body.appendChild(root);
-    }
+    };
 
     beforeEach(() => {
         addElements();
@@ -31,7 +31,7 @@ describe('$', () => {
     });
 
     it('Defaults to document if no root argument is passed', () => {
-        document.body.innerHTML = `<div id="Elrond"></div>`;
+        document.body.innerHTML = '<div id="Elrond"></div>';
         expect($('#Elrond')).not.toBeNull();
     });
 
