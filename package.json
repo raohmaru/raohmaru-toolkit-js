@@ -43,7 +43,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/raohmaru/raohmaru-toolkit-js.git"
+    "url": "git+https://github.com/raohmaru/rtkjs.git"
   },
   "keywords": [
     "toolkit",
@@ -52,7 +52,7 @@
   "author": "raohmaru",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/raohmaru/raohmaru-toolkit-js/issues"
+    "url": "https://github.com/raohmaru/rtkjs/issues"
   },
-  "homepage": "https://github.com/raohmaru/raohmaru-toolkit-js#readme"
+  "homepage": "https://github.com/raohmaru/rtkjs#readme"
 }
