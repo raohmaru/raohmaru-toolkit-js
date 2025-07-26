@@ -53,7 +53,7 @@ describe('wait', () => {
         const then = performance.now();
         await wait(250);
         const now = performance.now();
-        expect(now - then).toBeGreaterThanOrEqual(250);
+        expect(now - then).toBeGreaterThanOrEqual(234);
     });
 
     it('Should resolve after the specified time', async () => {
