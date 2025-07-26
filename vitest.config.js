@@ -2,6 +2,9 @@ import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
     test: {
-        reporters: ['verbose']
-    }
+        reporters: ['verbose'],
+        coverage: {
+            reporters: ['clover', 'lcov']
+        }
+    },
 });
