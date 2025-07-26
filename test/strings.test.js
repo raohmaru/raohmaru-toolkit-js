@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { parseTemplate } from '../lib/strings.js';
+import { parseTemplate } from '../lib/string.js';
 
 describe('parseTemplate', () => {
     it('Interpolates object properties', () => {

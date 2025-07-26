@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raohmaru Toolkit for JavaScript | DEV</title>
+  </head>
+  <body>
+    <h1>RTK.js DEV</h1>
+    <div id="app"></div>
+    <!-- <script type="module" src="./lib/main.js"></script> -->
+    <script type="module">
+        import { array, dom, object } from "./lib/main.js";
+        import { fillRange } from './lib/array.js';
+        const { $ } = dom;
+        const { isObject } = object;
+
+        const $output = $('#app');
+
+        function log(...args) {
+            const fnName = args.pop();
+            const msg = args.map((arg) => {
+                return isObject(arg) ? JSON.stringify(arg, null, 4) : arg;
+            }).join(' ');
+            const p = document.createElement('p');
+            p.innerHTML = `<b>${fnName}</b><br>${msg}`;
+            $output.appendChild(p);
+        }
+
+        log(fillRange(20), 'fillRange(20)');  // eslint-disable-line no-console
+    </script>
+  </body>
+</html>

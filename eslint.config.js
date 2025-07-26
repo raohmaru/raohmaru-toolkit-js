@@ -20,7 +20,8 @@ export default defineConfig([
         rules: {
             'no-console': 'error',
             semi: ['error', 'always'],
-            quotes: ['error', 'single']
+            quotes: ['error', 'single'],
+            'comma-dangle': 'error'
         }
     }
 ]);

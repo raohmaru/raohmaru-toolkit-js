@@ -38,7 +38,7 @@ function fillRange4(start = 0, end) {
 
 const length = 1000;
 const benchCfg = {
-    iterations: 1000,
+    iterations: 1000
     // time: 1000,
     // warmup: 100,
 };

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { Signal, state, effect } from '../lib/signals.js';
+import { Signal, state, effect } from '../lib/signal.js';
 
 describe('Signal', () => {
     it('The value can be changed and retrieved', () => {
