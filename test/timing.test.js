@@ -3,14 +3,15 @@ import { throttle, debounce, wait } from '../lib/timing.js';
 
 describe('throttle', () => {
     it('Should call the function immediately and then throttle subsequent calls', () => {
+        vi.useFakeTimers();
         const fn = vi.fn();
         const throttled = throttle(fn, 250);
         throttled(); // should call
         throttled(); // should not call
-        setTimeout(() => {
-            throttled(); // should call
-            expect(fn).toHaveBeenCalledTimes(2);
-        }, 250);
+        vi.advanceTimersByTime(251);
+        throttled(); // should call
+        expect(fn).toHaveBeenCalledTimes(2);
+        vi.useRealTimers();
     });
 
     it('Should pass arguments to the throttled function', () => {
