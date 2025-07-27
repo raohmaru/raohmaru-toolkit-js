@@ -4,7 +4,7 @@ export default defineConfig({
     test: {
         reporters: ['verbose'],
         coverage: {
-            reporters: ['clover', 'lcov']
+            include: ['lib/*.js']
         }
-    },
+    }
 });

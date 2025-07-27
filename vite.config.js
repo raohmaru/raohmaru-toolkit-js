@@ -20,7 +20,7 @@ export default defineConfig({
     build: {
         lib: {
             entry: {
-                rtk: resolve(__dirname, 'lib/main.js'),
+                rtk: resolve(__dirname, './main.js'),
                 // Multiple entry points for each file under lib/
                 ...getFiles(baseDir, /\.(j|t)s$/, 'main.js')
                     .reduce((acc, file) => {

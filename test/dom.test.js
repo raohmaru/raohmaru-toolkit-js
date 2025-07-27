@@ -59,6 +59,10 @@ describe('$$', () => {
         expect(els[1].className).toBe('troncho');
     });
 
+    it('Defaults to document if no root argument is passed', () => {
+        expect($$('.troncho')).not.toBeNull();
+    });
+
     it('Returns empty NodeList if no match', () => {
         const els = $$('.nope', root);
         expect(els).toBeInstanceOf(NodeList);
