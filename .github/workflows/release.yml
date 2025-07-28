@@ -41,22 +41,35 @@ jobs:
           node-version: 22
           registry-url: https://npm.pkg.github.com/
 
+      - name: Get release branch from tag
+        id: get_branch
+        run: |
+          # Get the commit hash for this tag
+          TAG="${GITHUB_REF#refs/tags/}"
+          COMMIT_HASH=$(git rev-list -n 1 "$TAG")
+          # Find remote branches that contain this commit
+          BRANCH=$(git branch -r --contains "$COMMIT_HASH" | grep -v '\->' | grep -E 'origin/main|origin/master' | head -n 1 | sed 's|origin/||' | xargs)
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+
+      - name: Checkout the release branch
+        if: steps.get_branch.outputs.branch != ''
+        run: |
+          git fetch origin ${{ steps.get_branch.outputs.branch }}
+          git checkout ${{ steps.get_branch.outputs.branch }}
+
       - name: Update package.json version
         run: |
           TAG_VERSION="${GITHUB_REF#refs/tags/}"
-          echo "Release tag: $TAG_VERSION"
-          # Remove leading "v" if present, e.g. v1.2.3 -> 1.2.3
           VERSION="${TAG_VERSION#v}"
-          echo "Setting package.json version to $VERSION"
           npm version --no-git-tag-version "$VERSION"
-      
+
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add package.json package-lock.json || true
           git commit -m "chore: update package.json version to $VERSION [skip ci]" || exit 0
-          git push
+          git push origin HEAD
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
