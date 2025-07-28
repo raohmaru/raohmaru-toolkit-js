@@ -21,7 +21,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: |
+          
+      - name: Test and run coverage
+        run: |
           npm ci
           npm run coverage
-      - uses: coverallsapp/github-action@v2
+
+      - name: Upload coverage to coveralls.io
+        uses: coverallsapp/github-action@v2

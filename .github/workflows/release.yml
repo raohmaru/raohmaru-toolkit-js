@@ -11,12 +11,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm ci
-      - run: npm test
+          
+      - name: Test and build
+        run: |
+          npm ci
+          npm test
+          npm run build
 
   publish-gpr:
     needs: build
@@ -25,13 +32,37 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: npm run build
-      - run: npm publish
+
+      - name: Update package.json version
+        run: |
+          TAG_VERSION="${GITHUB_REF#refs/tags/}"
+          echo "Release tag: $TAG_VERSION"
+          # Remove leading "v" if present, e.g. v1.2.3 -> 1.2.3
+          VERSION="${TAG_VERSION#v}"
+          echo "Setting package.json version to $VERSION"
+          npm version --no-git-tag-version "$VERSION"
+      
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add package.json package-lock.json || true
+          git commit -m "chore: update package.json version to $VERSION [skip ci]" || exit 0
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Publish to GitHub npm packages
+        run: |
+          npm ci
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
