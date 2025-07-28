@@ -16,5 +16,11 @@ describe('sample', () => {
 
     it('Creates an empty array', () => {
         expect(fillRange(0)).toStrictEqual([]);
+        expect(fillRange(10, 0)).toStrictEqual([]);
+        expect(fillRange(-5)).toStrictEqual([]);
+    });
+
+    it('Creates an array with values from -5 to 0', () => {
+        expect(fillRange(-5, 0)).toStrictEqual([-5, -4, -3, -2, -1, 0]);
     });
 });
