@@ -31,6 +31,9 @@
     "bench": "vitest bench",
     "lint": "eslint"
   },
+  "simple-git-hooks": {
+    "pre-commit": "npx vitest"
+  },
   "devDependencies": {
     "@eslint/compat": "^1.3.1",
     "@eslint/js": "^9.32.0",
@@ -38,6 +41,7 @@
     "eslint": "^9.32.0",
     "globals": "^16.3.0",
     "jsdom": "^26.1.0",
+    "simple-git-hooks": "^2.13.0",
     "vite": "^7.0.6",
     "vitest": "^3.2.4"
   },
