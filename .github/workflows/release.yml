@@ -19,11 +19,10 @@ jobs:
         with:
           node-version: 22
           
-      - name: Test and build
+      - name: Run tests
         run: |
           npm ci
           npm test
-          npm run build
 
   publish-gpr:
     needs: build
@@ -63,9 +62,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
-      - name: Publish to GitHub npm packages
+      - name: Build and publish to GitHub npm packages
         run: |
           npm ci
+          npm run build
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
