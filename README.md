@@ -1,7 +1,6 @@
 # Raohmaru Toolkit for JavaScript (RTK.js)
 
-[![GitHub Release](https://img.shields.io/github/v/release/raohmaru/rtkjs)
-](https://github.com/raohmaru/rtkjs/releases)
+[![GitHub Release](https://img.shields.io/github/v/release/raohmaru/rtkjs)](https://github.com/raohmaru/rtkjs/releases)
 [![CI](https://github.com/raohmaru/rtkjs/actions/workflows/ci.yml/badge.svg)](https://github.com/raohmaru/rtkjs/actions/workflows/ci.yml)
 [![Coverage Status](https://coveralls.io/repos/github/raohmaru/rtkjs/badge.svg)](https://coveralls.io/github/raohmaru/rtkjs)
 [![GitHub License](https://img.shields.io/github/license/raohmaru/rtkjs)](https://github.com/raohmaru/rtkjs/blob/main/LICENSE)
@@ -9,8 +8,11 @@
 A lightweight toolkit library for JavaScript applications with 0 dependencies.
 
 ## Installation
-You can install the library using npm.
-
+In the same directory as your package.json file create or edit an [.npmrc](https://docs.npmjs.com/cli/v9/configuring-npm/npmrc?v=true) file and add the following line.
+```
+@raohmaru:registry=https://npm.pkg.github.com
+```
+Then you can install the library using [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 ```bash
 npm install @raohmaru/rtkjs
 ```
@@ -37,7 +39,6 @@ import { array, Beat, state } from '@raohmaru/rtkjs';
 ## API Reference
 
 ### Array
-Utilities for working with arrays.
 
 #### `fillRange(start, [end])`
 Fills an array with integers from `start` to `end`.
@@ -48,7 +49,6 @@ fillRange(2, 5); // [2, 3, 4, 5]
 ```
 
 ### Beat
-A class for creating a frame-rate-independent game loop.
 
 #### `new Beat(callback, [fps])`
 The `Beat` class calls the `callback` function at a given frame rate (fps). It's useful for animations and game loops, providing a consistent speed across different devices.
@@ -64,7 +64,6 @@ myBeat.start();
 ```
 
 ### DOM
-Utilities for DOM manipulation.
 
 #### `$(selector, [root])`
 A fast query selector, equivalent to `root.querySelector(selector)`. It's optimized for ID selectors.
@@ -83,7 +82,6 @@ app.appendChild(newElement);
 ```
 
 ### Func
-Functional programming related utilities.
 
 #### `memoize(func)`
 Stores the results of a function in cache to save computation effort if the arguments are the same.
@@ -95,7 +93,6 @@ expensiveFunction(0); // Returns cached result
 ```
 
 ### Math
-Mathematical helper functions.
 
 #### `bezier3(t, x1, x2, x3)`
 Calculates a point on a quadratic Bézier curve.
@@ -109,7 +106,6 @@ const radians = toRadians(180); // 3.14159...
 ```
 
 ### Object
-Utilities for working with objects.
 
 #### `isObject(value)`
 Returns `true` if the value is a [literal](https://developer.mozilla.org/en-US/docs/Glossary/Literal) object.
@@ -131,7 +127,6 @@ console.log(obj1); // { a: 1, b: { c: 2, d: 4 }, e: 5 }
 ```
 
 ### Random
-Functions for generating random values.
 
 #### `sample(arr, [qty])`
 Gets one or more random items from an array.
@@ -151,7 +146,6 @@ randomInt(5, 10); // integer between 5 and 9
 ```
 
 ### Signal
-A simple reactive state management implementation.
 
 #### `new Signal([initialValue])`
 Class for managing event listeners that can also represent reactive state management.
@@ -180,10 +174,9 @@ setCount(c => c + 1);
 ```
 
 ### Store
-A Redux-like state management container.
 
 #### `createStore(reducer, [initialState])`
-Creates a store that holds the complete state tree of your app.
+Creates a Redux-like state management store that holds the complete state tree of your app.
 
 ```javascript
 function counter(state = 0, action) {
@@ -201,7 +194,6 @@ store.dispatch({ type: 'INCREMENT' }); // 1
 ```
 
 ### String
-Utilities for working with strings.
 
 #### `parseTemplate(expression, [regex])`
 A mini template engine that interpolates variables in a string. It supports dot notation for object properties.
@@ -213,7 +205,6 @@ console.log(result); // "Hello, Alex!"
 ```
 
 ### Timing
-Functions for controlling the timing of function execution.
 
 #### `throttle(func, wait)`
 Limits the execution of a function to once every `wait` milliseconds.
