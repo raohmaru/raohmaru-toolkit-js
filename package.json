@@ -1,6 +1,6 @@
 {
   "name": "@raohmaru/rtkjs",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A lightweight toolkit library for JavaScript applications",
   "type": "module",
   "files": [
