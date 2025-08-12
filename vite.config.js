@@ -1,4 +1,4 @@
-import { readdirSync } from 'node:fs'
+import { readdirSync } from 'node:fs';
 import { dirname, resolve, join, basename, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
@@ -29,7 +29,7 @@ export default defineConfig({
                     }, {})
             },
             name: 'RTK.js',
-            formats: ['es'],
+            formats: ['es']
         },
         sourcemap: true
     }

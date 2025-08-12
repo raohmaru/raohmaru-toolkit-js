@@ -8,6 +8,8 @@
 A lightweight toolkit library for JavaScript applications with 0 dependencies.
 
 ## Installation
+RTK.js is published to [GitHub Packages npm registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry). Before installing this library you will need to first authenticate in Github with a personal access token as described in [this page](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-with-a-personal-access-token). 
+
 In the same directory as your package.json file create or edit an [.npmrc](https://docs.npmjs.com/cli/v9/configuring-npm/npmrc?v=true) file and add the following line.
 ```
 @raohmaru:registry=https://npm.pkg.github.com
