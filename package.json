@@ -11,6 +11,7 @@
     ".": "./dist/rtk.js",
     "./array": "./dist/array.js",
     "./beat": "./dist/beat.js",
+    "./crc": "./dist/crc.js",
     "./dom": "./dist/dom.js",
     "./math": "./dist/math.js",
     "./object": "./dist/object.js",

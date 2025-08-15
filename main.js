@@ -1,5 +1,6 @@
 export * as array from './lib/array';
 export { Beat } from './lib/beat';
+export * as crc from './lib/crc';
 export * as dom from './lib/dom';
 export * as func from './lib/func';
 export * as math from './lib/math';

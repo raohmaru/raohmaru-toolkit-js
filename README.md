@@ -65,6 +65,22 @@ const myBeat = new Beat((time, delta) => {
 myBeat.start();
 ```
 
+### CRC
+
+#### `crc32(str)`
+Calculates the CRC32 checksum of a given string. This function is optimized for ASCII or single-byte strings.
+
+```javascript
+crc32('hello'); // 907060870
+```
+
+#### `crc32U(str)`
+Calculates the CRC32 checksum of a Unicode string, supporting multi-byte characters.
+
+```javascript
+crc32U('hello'); // 907060870
+crc32U('こんにちは'); // 4038187437
+
 ### DOM
 
 #### `$(selector, [root])`
