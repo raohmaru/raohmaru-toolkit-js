@@ -144,6 +144,24 @@ deepMerge(obj1, obj2);
 console.log(obj1); // { a: 1, b: { c: 2, d: 4 }, e: 5 }
 ```
 
+### PubSub
+
+#### `new PubSub()`
+A simple publish/subscribe class for event-driven communication between different parts of the application.
+
+#### Example
+```javascript
+const pubsub = new PubSub();
+// Subscribe to a topic
+const unsubscribe = pubsub.subscribe('shinbun', (data) => {
+  console.log('News received:', data);
+});
+// Publish to the topic
+pubsub.publish('shinbun', { news: 'ニュースの見出し' });
+// Unsubscribe if needed
+unsubscribe();
+```
+
 ### Random
 
 #### `sample(arr, [qty])`

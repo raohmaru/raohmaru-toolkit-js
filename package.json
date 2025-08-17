@@ -15,6 +15,7 @@
     "./dom": "./dist/dom.js",
     "./math": "./dist/math.js",
     "./object": "./dist/object.js",
+    "./pubsub": "./dist/pubsub.js",
     "./random": "./dist/random.js",
     "./signal": "./dist/signal.js",
     "./store": "./dist/store.js",

@@ -6,6 +6,7 @@ export * as func from './lib/func';
 export * as math from './lib/math';
 export * as object from './lib/object';
 export * as random from './lib/random';
+export { default as PubSub } from './lib/pubsub';
 export { Signal, state, effect } from './lib/signal';
 export * as signal from './lib/signal';
 export * as string from './lib/string';
